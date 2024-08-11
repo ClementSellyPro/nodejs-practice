@@ -3,21 +3,31 @@ import '../style/Formulaire.css';
 
 function Formulaire(){
 
-    const [userName, setUserName] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault();
+        let form = e.target;
+        let formData = new FormData(form);
 
+        const username = formData.get('username');
+        const password = formData.get('password')
+
+        setUsername(username);
+        setPassword(password);
+
+        form.reset();
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <div className='row'>
-                <label for='userName' name='userName'>Username :</label>
-                <input type='text' id='userName' name='userName' />
+                <label htmlFor='username' name='username'>Username :</label>
+                <input type='text' id='username' name='username' />
             </div>
             <div className='row'>
-                <label for='password' name='password'>Password :</label>
+                <label htmlFor='password' name='password'>Password :</label>
                 <input type='text' id='password' name='password' />
             </div>
 
