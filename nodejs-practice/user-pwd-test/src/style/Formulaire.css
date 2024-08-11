@@ -1,0 +1,35 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+h1{
+    margin-bottom: 50px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row{
+
+}
+
+label{
+    font-size: 2em;
+}
+
+input{
+    margin-left: 20px;
+    height: 25px;
+    width: 200px;
+}
+
+button{
+    margin-top: 20px;
+    height: 30px;
+}
