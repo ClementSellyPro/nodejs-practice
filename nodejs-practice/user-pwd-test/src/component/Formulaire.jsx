@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import '../style/Formulaire.css';
 
 function Formulaire(){
-
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
     function handleSubmit(e){
         e.preventDefault();
@@ -12,10 +8,21 @@ function Formulaire(){
         let formData = new FormData(form);
 
         const username = formData.get('username');
-        const password = formData.get('password')
+        const password = formData.get('password');
 
-        setUsername(username);
-        setPassword(password);
+        const newUser = {
+            "name": username,
+            "password": password
+        }
+
+        fetch('http://localhost:3000/api/form', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        })
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
 
         form.reset();
     }
