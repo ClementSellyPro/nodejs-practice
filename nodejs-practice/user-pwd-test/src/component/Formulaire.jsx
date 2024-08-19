@@ -1,4 +1,5 @@
 import '../style/Formulaire.css';
+import Buttons from './Buttons';
 
 function Formulaire(){
 
@@ -29,6 +30,10 @@ function Formulaire(){
 
     return (
         <form onSubmit={handleSubmit}>
+            <Buttons />
+
+            <h2>Inscription</h2>
+
             <div className='row'>
                 <label htmlFor='username' name='username'>Username :</label>
                 <input type='text' id='username' name='username' />

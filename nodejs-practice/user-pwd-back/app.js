@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 
 const mongoose = require('mongoose');
-const User = require('./model/user.model');
+
+const userRoutes = require('./routes/user.route');
 
 mongoose.connect('mongodb+srv://ekkobeatmaker:dk2VeYUd3dbMYOJD@cluster0.kwob1rw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
   {
@@ -23,19 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/api/form', (req, res) => {
-    User.find()
-      .then(user => res.status(200).json(user))
-      .catch(error => res.status(400).json({ error }));
-})
-
-app.post('/api/form', (req, res) => {
-    const user = new User({
-      ...req.body
-    });
-    user.save()
-      .then(() => res.status(201).json({message: 'User created !'}))
-      .catch(error => res.status(400).json({ error }));
-})
+app.use('/api/form', userRoutes);
 
 module.exports = app;

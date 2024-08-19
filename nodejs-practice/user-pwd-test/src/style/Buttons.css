@@ -1,0 +1,30 @@
+.Buttons{
+    display: flex;
+    gap: 80px;
+    margin-bottom: 50px;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.inscription{
+    background-color: rgb(141, 255, 89);
+}
+.inscription:hover{
+    background-color: rgb(106, 232, 47);
+}
+
+
+.connexion{
+    background-color: transparent;
+    color: rgb(49, 117, 18);
+}
+.connexion:hover{
+    color: rgb(73, 171, 27);
+}
