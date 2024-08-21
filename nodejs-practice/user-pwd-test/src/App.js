@@ -14,6 +14,14 @@ function App() {
     {
       path: '/connexion',
       element: <Connexion />
+    },
+    {
+      path: '/connected',
+      element: <h1>You are connected</h1>
+    },
+    {
+      path: '/notconnected',
+      element: <h1>Wrong password !</h1>
     }
   ]);
 

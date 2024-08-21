@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bcrypt = require('bcryptjs');
 
 const mongoose = require('mongoose');
 
@@ -11,11 +12,11 @@ mongoose.connect('mongodb+srv://ekkobeatmaker:dk2VeYUd3dbMYOJD@cluster0.kwob1rw.
     useUnifiedTopology: true 
   })
   .then(() => console.log('Connexion a MongoDB reussie !'))
-  .catch((err) => console.log('Connexion a MongoDB echouee !', err.message))
+  .catch((err) => console.log('Connexion a MongoDB echouee !', err.message));
   
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

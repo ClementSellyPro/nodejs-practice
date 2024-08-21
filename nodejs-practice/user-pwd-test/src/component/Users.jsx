@@ -8,7 +8,6 @@ function Users(){
         fetch('http://localhost:3000/api/form')
         .then(res => res.json())
         .then(data => setUserList(data));
-
     }, [userList]);
 
     function handleDelete(e){
