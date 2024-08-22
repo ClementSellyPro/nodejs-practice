@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bcrypt = require('bcryptjs');
 
 const mongoose = require('mongoose');
 

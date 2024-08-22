@@ -1,12 +1,14 @@
 const bcrypt = require('bcryptjs');
 const User = require('../model/user.model');
+const jwt = require('jsonwebtoken')
 
 exports.createUser = (req, res) => {
   bcrypt.hash(req.body.password, 10)
     .then(hash => {
       const newUser = new User({
         name: req.body.name,
-        password: hash
+        password: hash,
+        avatarUrl: `${req.protocol}://${req.get('host')}/images/${req/file.filename}`
       });
 
       newUser.save()
@@ -41,8 +43,11 @@ exports.login = (req, res) => {
       }
       res.status(200).json({
         name: user.name,
-        password: user.password,
-        token: 'TOKEN'
+        token: jwt.sign(
+          { name: user.name },
+          'RANDOM_TOKEN_SECRET',
+          { expiresIn: '24h'}
+        )
       });
     })
     .catch(error => res.status(502).json({error}));
